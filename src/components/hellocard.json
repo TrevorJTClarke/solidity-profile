@@ -1,0 +1,13 @@
+{
+  "userName": "Joe",
+  "skills": [{
+    "name": "Solidity",
+    "endorsed": ["0x0dcdde52b3bb93c59719c777b355ac84d19921a6"]
+  }, {
+    "name": "Javascript",
+    "endorsed": ["0x0dcdde52b3bb93c59719c777b355ac84d19921a6", "0x9aba9438d3607a210d7106313e275dfd92461056", "0xd0492bbfc8d8cdb27d832df31783d0f5d364ce6d", "0x3ccb3f25ffb56868cfd98d96d99e9ffaf0ee1f28", "0xa989a042635c33594c2c875001e02b5d04fd4920"]
+  }, {
+    "name": "Sass",
+    "endorsed": []
+  }]
+}
