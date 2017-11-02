@@ -8,7 +8,7 @@
 <script>
 
 export default {
-  name: 'dashboard',
+  name: 'skill',
   props: ['data'],
   data () {
     return {

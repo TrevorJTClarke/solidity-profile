@@ -2,5 +2,4 @@
 *.gitkeep
 .editorconfig
 dist
-build
 node_modules
