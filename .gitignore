@@ -1,8 +1,6 @@
 *.log
 *.gitkeep
 .editorconfig
-
+dist
 build
-
-config/eslint
 node_modules
