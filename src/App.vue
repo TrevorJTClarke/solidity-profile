@@ -25,6 +25,7 @@ export default {
 
 body {
   background: #f9f9f9;
+  padding-bottom: 40px;
 }
 
 #app {

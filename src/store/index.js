@@ -12,7 +12,7 @@ Vue.use(Vuex)
 const debug = false
 
 const state = {
-  userName: 'Joe',
+  userName: null,
   skills: [],
   retried: false,
   metamask: false,

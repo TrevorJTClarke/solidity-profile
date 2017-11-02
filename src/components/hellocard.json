@@ -1,5 +1,5 @@
 {
-  "userName": "Joe",
+  "userName": "",
   "skills": [{
     "name": "Solidity",
     "endorsed": ["0x0dcdde52b3bb93c59719c777b355ac84d19921a6"]

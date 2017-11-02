@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    <template v-if="userName">
-      <div class="card hello-card">
-        <div class="hello-title">
-          <h1>Hello</h1>
-          <h4>My Name is</h4>
-        </div>
-        <div>
+    <div class="card hello-card">
+      <div class="hello-title">
+        <h1>Hello</h1>
+        <h4>My Name is</h4>
+      </div>
+      <div>
+        <template v-if="address">
           <h2>{{userName}}</h2>
           <hr>
           <div class="skills">
@@ -14,15 +14,20 @@
             <div v-for="item in skills">
               <skill :data="item"/>
             </div>
+            <!-- <add-skill /> -->
           </div>
-        </div>
+        </template>
+        <template v-else>
+          <div class="hello-form">
+            <input type="text" maxlength="32" value="" v-model="newName" placeholder="Your Name">
+            <hr>
+            <div class="">
+              <button class="btn btn-outlined" type="submit" @click="submitName">Go!</button>
+            </div>
+          </div>
+        </template>
       </div>
-    </template>
-    <template v-else>
-      <div class="card">
-        <h1>No User Found :(</h1>
-      </div>
-    </template>
+    </div>
     <div class="card card-help">
       <h3>What is this?</h3>
       <p>This is a demo of Solidity & Vue.js<br><br>This is a smart contract that stores a user, some skills and endorements assigned to each skill. The purpose is to create verifiable skills based on peer accredidation for a given user.</p>
@@ -34,6 +39,7 @@
 
 <script>
 import Skill from '@/components/Skill'
+import AddSkill from '@/components/AddSkill'
 import defaultData from '@/components/hellocard.json'
 import { mapGetters, mapActions } from 'vuex'
 // const debug = true
@@ -42,18 +48,28 @@ const debug = false
 export default {
   name: 'dashboard',
   data () {
-    return (debug) ? defaultData : {}
+    return (debug) ? defaultData : {
+      newName: null
+    }
   },
   computed: {
-    ...mapGetters(['userName', 'skills'])
+    ...mapGetters(['address', 'userName', 'skills'])
   },
   mounted () {
+    if (!this.address) return
     this.mountUserContract(this.address)
   },
   methods: {
-    ...mapActions(['mountUserContract'])
+    ...mapActions(['mountUserContract', 'setUserName']),
+    submitName () {
+      this.newName = this.newName.substring(0, 12)
+      this.$store.commit('SET_USERNAME', this.newName)
+      // NOTE: Testing only!
+      this.$store.commit('ADD_ADDRESS', '0xc1754b57c63714bd9cf5530d6b94d24b0371c865')
+    }
   },
   components: {
+    AddSkill,
     Skill
   }
 }
@@ -132,6 +148,28 @@ hr {
   div {
     display: inline-block;
     margin-right: 5px;
+  }
+}
+
+.hello-form {
+
+  input {
+    border: 0;
+    color: $secondary;
+    font-size: 45pt;
+    font-family: monospace;
+    font-weight: 400;
+    margin: 0;
+    padding: 10px 0 0;
+    text-align: center;
+    width: 90%;
+  }
+
+  .btn {
+    width: 70%;
+    margin: 0px 0 10px;
+    font-size: 21pt;
+    color: #22a522;
   }
 }
 </style>

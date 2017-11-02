@@ -1,18 +1,12 @@
 @import 'variables';
 
 input {
-  -webkit-appearance: none;
-  appearance: none;
-  border: 1px solid $lightgrey;
-  border-radius: 3px;
+  border: 0;
+  border-bottom: 1px solid $lightgrey;
   color: $darkgrey;
-  cursor: pointer;
-  font-size: 13pt;
   display: inline-block;
-  height: 41px;
   margin: 0;
   outline: none;
-  width: 100%;
 }
 
 label {

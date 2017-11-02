@@ -66,6 +66,9 @@ export default {
       commit('SET_USERNAME', name)
     })
   },
+  setUserName ({commit}, name) {
+    commit('SET_USERNAME', name)
+  },
   readLogs ({dispatch, state, commit}) {
     commit('CLEAR_LOGS')
     let options = {

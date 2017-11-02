@@ -9,7 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'hellocard',
+      name: 'root',
+      component: HelloCard
+    },
+    {
+      path: '/:address',
+      name: 'user',
       component: HelloCard
     }
   ]
