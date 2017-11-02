@@ -1,5 +1,4 @@
 *.log
-*.gitkeep
 .editorconfig
 dist
 node_modules
